@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://github.com/Sunjinhang/Sunjinhang.github.io/tree/master/"/>
+  <link href="http://sunjinhang.github.io/"/>
   <updated>2020-02-05T01:37:16.159Z</updated>
-  <id>https://github.com/Sunjinhang/Sunjinhang.github.io/tree/master/</id>
+  <id>http://sunjinhang.github.io/</id>
   
   <author>
     <name>JinHang Sun</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>BubbleSort</title>
-    <link href="https://github.com/Sunjinhang/Sunjinhang.github.io/tree/master/2020/02/05/BubbleSort/"/>
-    <id>https://github.com/Sunjinhang/Sunjinhang.github.io/tree/master/2020/02/05/BubbleSort/</id>
+    <link href="http://sunjinhang.github.io/2020/02/05/BubbleSort/"/>
+    <id>http://sunjinhang.github.io/2020/02/05/BubbleSort/</id>
     <published>2020-02-05T01:37:16.000Z</published>
     <updated>2020-02-05T01:37:16.159Z</updated>
     
@@ -33,12 +33,12 @@
   
   <entry>
     <title>斐波那契数列</title>
-    <link href="https://github.com/Sunjinhang/Sunjinhang.github.io/tree/master/2020/02/04/Fibonacci/"/>
-    <id>https://github.com/Sunjinhang/Sunjinhang.github.io/tree/master/2020/02/04/Fibonacci/</id>
+    <link href="http://sunjinhang.github.io/2020/02/04/Fibonacci/"/>
+    <id>http://sunjinhang.github.io/2020/02/04/Fibonacci/</id>
     <published>2020-02-04T12:39:25.000Z</published>
-    <updated>2020-02-05T01:49:30.262Z</updated>
+    <updated>2020-02-05T02:17:30.495Z</updated>
     
-    <content type="html"><![CDATA[<p>斐波那契数列:1、1、2、3、5、8、13……</p><p>使用迭代算法和递归算法都可以实现斐波那契数列，输出数列中的第N项，但是由于递归算法在计算时存在着大量的重复计算，所以在N值很大时，可能会造成内存的溢出，以及计算时间较长的情况出现，在使用迭代算法的情况下同样可以实现计算斐波那契数列第N项的功能，代码示例如下</p><h3 id="迭代算法："><a href="#迭代算法：" class="headerlink" title="迭代算法："></a>迭代算法：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static int FibonacciD(int num) &#123;</span><br><span class="line"><span class="keyword">if</span>(num &lt;= 0) &#123;</span><br><span class="line"><span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(num == 1 || num == 2) &#123;</span><br><span class="line"><span class="built_in">return</span> 1;</span><br><span class="line">&#125;</span><br><span class="line">int first = 1,second =1,third = 0;</span><br><span class="line"><span class="keyword">for</span>(int i = 3; i&lt;= num ;i++) &#123;</span><br><span class="line">third = first + second;</span><br><span class="line">first = second;</span><br><span class="line">second = third;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">return</span> third;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>思路就是当 n &lt;=0 时 return 0，当1 &lt;= n &lt;= 2时 return 1 ，当 n &gt;= 3时，第n项 f(n) = f(n-2) + f(n-1)，所以在计算数列中第n项的时候可用一个for循环，初始化前两项的值，计算完成第N项之后，然后交换（n-2）项 （n-1）项的值，循环完成之后计算出的Third值即为数列中第N项的值</p><h3 id="递归算法："><a href="#递归算法：" class="headerlink" title="递归算法："></a>递归算法：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static int Fibonacci(int i) &#123;</span><br><span class="line"><span class="keyword">if</span>(i &lt;= 0) &#123;</span><br><span class="line"><span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(i == 1 || i == 2) &#123;</span><br><span class="line"><span class="built_in">return</span> 1;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">return</span> Fibonacci(i -2) + Fibonacci(i-1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在N值比较小的时候两种方式计算耗时的差异不大，但是当N值比较大的时候两者之间计算时间的差异就比较大了，</p><p>当N = 10 ，运行时间差异不大，基本上一致<br><img src="/Sunjinhang/Sunjinhang.github/20190311161908734.png" alt="20190311161908734"><br>当N = 40 时，此时运行耗时差异已经比较大了</p><p> 当N = 45 时,耗时差异进一步加大</p><p>​</p><p>所以当N 值趋近于一个较大的值时，再使用递归计算第N项值，耗费的时间将是一个很恐怖的值，因此当N值较大时优先使用迭代算法</p>]]></content>
+    <content type="html"><![CDATA[<p>斐波那契数列:1、1、2、3、5、8、13……</p><p>使用迭代算法和递归算法都可以实现斐波那契数列，输出数列中的第N项，但是由于递归算法在计算时存在着大量的重复计算，所以在N值很大时，可能会造成内存的溢出，以及计算时间较长的情况出现，在使用迭代算法的情况下同样可以实现计算斐波那契数列第N项的功能，代码示例如下</p><h3 id="迭代算法："><a href="#迭代算法：" class="headerlink" title="迭代算法："></a>迭代算法：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static int FibonacciD(int num) &#123;</span><br><span class="line"><span class="keyword">if</span>(num &lt;= 0) &#123;</span><br><span class="line"><span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(num == 1 || num == 2) &#123;</span><br><span class="line"><span class="built_in">return</span> 1;</span><br><span class="line">&#125;</span><br><span class="line">int first = 1,second =1,third = 0;</span><br><span class="line"><span class="keyword">for</span>(int i = 3; i&lt;= num ;i++) &#123;</span><br><span class="line">third = first + second;</span><br><span class="line">first = second;</span><br><span class="line">second = third;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">return</span> third;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>思路就是当 n &lt;=0 时 return 0，当1 &lt;= n &lt;= 2时 return 1 ，当 n &gt;= 3时，第n项 f(n) = f(n-2) + f(n-1)，所以在计算数列中第n项的时候可用一个for循环，初始化前两项的值，计算完成第N项之后，然后交换（n-2）项 （n-1）项的值，循环完成之后计算出的Third值即为数列中第N项的值</p><h3 id="递归算法："><a href="#递归算法：" class="headerlink" title="递归算法："></a>递归算法：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static int Fibonacci(int i) &#123;</span><br><span class="line"><span class="keyword">if</span>(i &lt;= 0) &#123;</span><br><span class="line"><span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(i == 1 || i == 2) &#123;</span><br><span class="line"><span class="built_in">return</span> 1;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">return</span> Fibonacci(i -2) + Fibonacci(i-1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在N值比较小的时候两种方式计算耗时的差异不大，但是当N值比较大的时候两者之间计算时间的差异就比较大了，</p><p>当N = 10 ，运行时间差异不大，基本上一致<br><img src="/2020/02/04/Fibonacci/20190311161908734.png" alt="20190311161908734"><br>当N = 40 时，此时运行耗时差异已经比较大了<br><img src="/2020/02/04/Fibonacci/20190311162154903.png" alt="20190311162154903"><br> 当N = 45 时,耗时差异进一步加大<br><img src="/2020/02/04/Fibonacci/20190311162551834.png" alt="20190311162551834"><br>​</p><p>所以当N 值趋近于一个较大的值时，再使用递归计算第N项值，耗费的时间将是一个很恐怖的值，因此当N值较大时优先使用迭代算法</p>]]></content>
     
     <summary type="html">
     
@@ -51,23 +51,23 @@
     </summary>
     
     
-      <category term="数据结构与算法" scheme="https://github.com/Sunjinhang/Sunjinhang.github.io/tree/master/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+      <category term="数据结构与算法" scheme="http://Sunjinhang.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="迭代算法" scheme="https://github.com/Sunjinhang/Sunjinhang.github.io/tree/master/tags/%E8%BF%AD%E4%BB%A3%E7%AE%97%E6%B3%95/"/>
+      <category term="迭代算法" scheme="http://Sunjinhang.github.io/tags/%E8%BF%AD%E4%BB%A3%E7%AE%97%E6%B3%95/"/>
     
-      <category term="递归算法" scheme="https://github.com/Sunjinhang/Sunjinhang.github.io/tree/master/tags/%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95/"/>
+      <category term="递归算法" scheme="http://Sunjinhang.github.io/tags/%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>Hexo pure主题使用指南</title>
-    <link href="https://github.com/Sunjinhang/Sunjinhang.github.io/tree/master/2020/02/03/index/"/>
-    <id>https://github.com/Sunjinhang/Sunjinhang.github.io/tree/master/2020/02/03/index/</id>
+    <link href="http://sunjinhang.github.io/2020/02/03/index/"/>
+    <id>http://sunjinhang.github.io/2020/02/03/index/</id>
     <published>2020-02-03T03:46:07.025Z</published>
     <updated>2020-02-04T03:36:47.634Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
     <summary type="html">
     
@@ -79,10 +79,10 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://github.com/Sunjinhang/Sunjinhang.github.io/tree/master/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://Sunjinhang.github.io/categories/Hexo/"/>
     
     
-      <category term="pure主题" scheme="https://github.com/Sunjinhang/Sunjinhang.github.io/tree/master/tags/pure%E4%B8%BB%E9%A2%98/"/>
+      <category term="pure主题" scheme="http://Sunjinhang.github.io/tags/pure%E4%B8%BB%E9%A2%98/"/>
     
   </entry>
   
