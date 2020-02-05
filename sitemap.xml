@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://sunjinhang.github.io/about/index.html</loc>
+    
+    <lastmod>2020-02-05T03:31:13.952Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://sunjinhang.github.io/2020/02/05/FactoryPattern/</loc>
     
     <lastmod>2020-02-05T02:54:40.000Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>http://sunjinhang.github.io/2020/02/05/SelectSort/</loc>
     
     <lastmod>2020-02-05T02:49:06.488Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://sunjinhang.github.io/about/index.html</loc>
-    
-    <lastmod>2020-02-04T10:22:45.362Z</lastmod>
     
   </url>
   
