@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://sunjinhang.github.io/2020/02/05/FactoryPattern/</loc>
+    
+    <lastmod>2020-02-05T02:53:00.261Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://sunjinhang.github.io/2020/02/04/Fibonacci/</loc>
     
-    <lastmod>2020-02-05T02:17:30.495Z</lastmod>
+    <lastmod>2020-02-05T02:49:26.312Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://sunjinhang.github.io/2020/02/05/BubbleSort/</loc>
     
-    <lastmod>2020-02-05T01:37:16.159Z</lastmod>
+    <lastmod>2020-02-05T02:49:18.023Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjinhang.github.io/2020/02/05/SelectSort/</loc>
+    
+    <lastmod>2020-02-05T02:49:06.488Z</lastmod>
     
   </url>
   

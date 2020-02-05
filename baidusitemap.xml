@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://Sunjinhang.github.io/2020/02/05/FactoryPattern/</loc>
+    <lastmod>2020-02-05</lastmod>
+  </url>  <url>
     <loc>http://Sunjinhang.github.io/2020/02/04/Fibonacci/</loc>
     <lastmod>2020-02-05</lastmod>
   </url>  <url>
     <loc>http://Sunjinhang.github.io/2020/02/05/BubbleSort/</loc>
+    <lastmod>2020-02-05</lastmod>
+  </url>  <url>
+    <loc>http://Sunjinhang.github.io/2020/02/05/SelectSort/</loc>
     <lastmod>2020-02-05</lastmod>
   </url>  <url>
     <loc>http://Sunjinhang.github.io/2020/02/03/index/</loc>

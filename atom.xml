@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sunjinhang.github.io/"/>
-  <updated>2020-02-05T01:37:16.159Z</updated>
+  <updated>2020-02-05T02:53:00.261Z</updated>
   <id>http://sunjinhang.github.io/</id>
   
   <author>
@@ -17,17 +17,86 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>BubbleSort</title>
-    <link href="http://sunjinhang.github.io/2020/02/05/BubbleSort/"/>
-    <id>http://sunjinhang.github.io/2020/02/05/BubbleSort/</id>
-    <published>2020-02-05T01:37:16.000Z</published>
-    <updated>2020-02-05T01:37:16.159Z</updated>
+    <title>FactoryPattern</title>
+    <link href="http://sunjinhang.github.io/2020/02/05/FactoryPattern/"/>
+    <id>http://sunjinhang.github.io/2020/02/05/FactoryPattern/</id>
+    <published>2020-02-05T02:51:06.000Z</published>
+    <updated>2020-02-05T02:53:00.261Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1、创建图形接口"><a href="#1、创建图形接口" class="headerlink" title="1、创建图形接口"></a>1、创建图形接口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public interface Shape &#123;</span><br><span class="line"></span><br><span class="line">void draw();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="2、实现接口"><a href="#2、实现接口" class="headerlink" title="2、实现接口"></a>2、实现接口</h3><p>CircleImpl.java</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class CircleImpl implements Shape &#123;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">public void <span class="function"><span class="title">draw</span></span>() &#123;</span><br><span class="line">System.out.println(<span class="string">"this is circle method"</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>SquareImpl.java</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class SquareImpl implements Shape &#123;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">public void <span class="function"><span class="title">draw</span></span>() &#123;</span><br><span class="line">System.out.println(<span class="string">"this is square method"</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>RectangleImpl.java</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class RectangleImpl implements Shape &#123;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">public void <span class="function"><span class="title">draw</span></span>() &#123;</span><br><span class="line">System.out.println(<span class="string">"this is rectangle method"</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="3、创建图形工厂类"><a href="#3、创建图形工厂类" class="headerlink" title="3、创建图形工厂类"></a>3、创建图形工厂类</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class ShapeFactory &#123;</span><br><span class="line">public Shape getShape(String shape) &#123;</span><br><span class="line"><span class="keyword">if</span>(shape == null) &#123;</span><br><span class="line"><span class="built_in">return</span> null;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(shape.equalsIgnoreCase(<span class="string">"circle"</span>)) &#123;</span><br><span class="line"><span class="built_in">return</span> new CircleImpl();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(shape.equalsIgnoreCase(<span class="string">"square"</span>)) &#123;</span><br><span class="line"><span class="built_in">return</span> new SquareImpl();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(shape.equalsIgnoreCase(<span class="string">"rectangle"</span>)) &#123;</span><br><span class="line"><span class="built_in">return</span> new RectangleImpl();</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">return</span> null;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="4、调用工厂类输出执行结果"><a href="#4、调用工厂类输出执行结果" class="headerlink" title="4、调用工厂类输出执行结果"></a>4、调用工厂类输出执行结果</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class FactoryPatternDemo &#123;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">// TODO Auto-generated method stub</span><br><span class="line">ShapeFactory shapeFatory = new ShapeFactory();</span><br><span class="line">Shape circle = shapeFatory.getShape(<span class="string">"circle"</span>);</span><br><span class="line">circle.draw();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Shape square = shapeFatory.getShape(<span class="string">"square"</span>);</span><br><span class="line">square.draw();</span><br><span class="line"></span><br><span class="line">Shape rectangle = shapeFatory.getShape(<span class="string">"rectangle"</span>);</span><br><span class="line">rectangle.draw();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>执行结果 ：</p>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;1、创建图形接口&quot;&gt;&lt;a href=&quot;#1、创建图形接口&quot; class=&quot;headerlink&quot; title=&quot;1、创建图形接口&quot;&gt;&lt;/a&gt;1、创建图形接口&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cla
+      
     
     </summary>
     
     
+      <category term="设计模式" scheme="http://Sunjinhang.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="Java" scheme="http://Sunjinhang.github.io/tags/Java/"/>
+    
+      <category term="工厂模式" scheme="http://Sunjinhang.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>选择排序及其优化</title>
+    <link href="http://sunjinhang.github.io/2020/02/05/SelectSort/"/>
+    <id>http://sunjinhang.github.io/2020/02/05/SelectSort/</id>
+    <published>2020-02-05T02:47:05.000Z</published>
+    <updated>2020-02-05T02:49:06.488Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="选择排序基础版"><a href="#选择排序基础版" class="headerlink" title="选择排序基础版"></a>选择排序基础版</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public static int[] SelectSort(int[] array) &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(int i = 0;i &lt; array.length; i++) &#123;</span><br><span class="line">int index = i;</span><br><span class="line"><span class="keyword">for</span>(int j = i; j &lt; array.length ;j++) &#123;</span><br><span class="line"><span class="keyword">if</span>(array[j] &lt; array[index]) &#123;</span><br><span class="line">index = j;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">int temp = array[i];</span><br><span class="line">array[i] = array[index];</span><br><span class="line">array[index] = temp;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">return</span> array;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>选择排序就是在未序的序列中选出一个最大或最小的值放到已序序列的末尾，当内层循环筛选出最大或者最小值之后，会有一个做交换的操作，那么如果两个值相等或者index的值没有发生变化，那么此时就不需要在进行数值交换。此时代码可更改如下</p><h3 id="优化版"><a href="#优化版" class="headerlink" title="优化版"></a>优化版</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public static int[] SelectSort(int[] array) &#123;</span><br><span class="line"></span><br><span class="line">int minValue;</span><br><span class="line"><span class="keyword">for</span>(int i = 0;i &lt; array.length; i++) &#123;</span><br><span class="line">minValue = array[i];</span><br><span class="line">int index = i;</span><br><span class="line"><span class="keyword">for</span>(int j = i; j &lt; array.length ;j++) &#123;</span><br><span class="line"><span class="keyword">if</span>(array[j] &lt; array[index]) &#123;</span><br><span class="line">index = j;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(minValue != array[index] &amp;&amp; index != i) &#123;</span><br><span class="line">int temp = array[i];</span><br><span class="line">array[i] = array[index];</span><br><span class="line">array[index] = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">return</span> array;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;选择排序基础版&quot;&gt;&lt;a href=&quot;#选择排序基础版&quot; class=&quot;headerlink&quot; title=&quot;选择排序基础版&quot;&gt;&lt;/a&gt;选择排序基础版&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="数据结构与算法" scheme="http://Sunjinhang.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="Java" scheme="http://Sunjinhang.github.io/tags/Java/"/>
+    
+      <category term="选择排序" scheme="http://Sunjinhang.github.io/tags/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>冒泡排序及其优化</title>
+    <link href="http://sunjinhang.github.io/2020/02/05/BubbleSort/"/>
+    <id>http://sunjinhang.github.io/2020/02/05/BubbleSort/</id>
+    <published>2020-02-05T01:37:16.000Z</published>
+    <updated>2020-02-05T02:49:18.023Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="冒泡排序-基础版"><a href="#冒泡排序-基础版" class="headerlink" title="冒泡排序 基础版"></a>冒泡排序 基础版</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static int[] BubbleSort(int[] array) &#123;</span><br><span class="line"><span class="keyword">for</span>(int i = 0;i &lt; array.length;i++) &#123;</span><br><span class="line"><span class="keyword">for</span>(int j = 0;j&lt;array.length -1;j++) &#123;</span><br><span class="line"><span class="keyword">if</span>(array[j] &gt; array[j+1]) &#123;</span><br><span class="line">int temp = array[j];</span><br><span class="line">array[j] = array[j+1];</span><br><span class="line">array[j+1] = temp;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">return</span> array;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>那么如何进行优化呢，以上写法需要 进行比较 N * N-1 次 ，但是已经排序好的元素是不需要再次进行比较的，所以我们可以做如下改进。原理就是当每经过一次外层循环，就会有一个元素排好序，所以就不需要再次进行比较了</p><h3 id="优化版-1"><a href="#优化版-1" class="headerlink" title="优化版 +1"></a>优化版 +1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static int[] BubbleSort(int[] array) &#123;</span><br><span class="line"><span class="keyword">for</span>(int i = 0;i &lt; array.length;i++) &#123;</span><br><span class="line"><span class="keyword">for</span>(int j = 0;j&lt;array.length - i -1;j++) &#123;</span><br><span class="line"><span class="keyword">if</span>(array[j] &gt; array[j+1]) &#123;</span><br><span class="line">int temp = array[j];</span><br><span class="line">array[j] = array[j+1];</span><br><span class="line">array[j+1] = temp;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">return</span> array;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>那么，即使如此，还有没有进一步优化的空间呢？如果给定的数组已经是一个有序数组呢？按照以上写法还是需要进行多次循环，那么我们可以进行以下改进，当我们发现内层循环没有发生数据交换的时候，就可以认定为数组已经完成好排序。 </p><h3 id="优化版-1-1"><a href="#优化版-1-1" class="headerlink" title="优化版 ++1"></a>优化版 ++1</h3><pre><code class="bash">public static int[] BubbleSort(int[] array) {    <span class="keyword">for</span>(int i = 0;i &lt; array.length;i++) {        boolean isExchange = <span class="literal">false</span>;        <span class="keyword">for</span>(int j = 0;j&lt;array.length - i -1;j++) {            <span class="keyword">if</span>(array[j] &gt; array[j+1]) {                isExchange = <span class="literal">true</span>;                int temp = array[j];                array[j] = array[j+1];                array[j+1] = temp;            }        }        <span class="keyword">if</span>(!isExchange) {            <span class="built_in">return</span> array;        }    }            <span class="built_in">return</span> array;}</code></pre><p> 以上就是冒泡排序算法及其优化的实现</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;冒泡排序-基础版&quot;&gt;&lt;a href=&quot;#冒泡排序-基础版&quot; class=&quot;headerlink&quot; title=&quot;冒泡排序 基础版&quot;&gt;&lt;/a&gt;冒泡排序 基础版&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cla
+      
+    
+    </summary>
+    
+    
+      <category term="数据结构与算法" scheme="http://Sunjinhang.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="冒泡" scheme="http://Sunjinhang.github.io/tags/%E5%86%92%E6%B3%A1/"/>
+    
+      <category term="Java" scheme="http://Sunjinhang.github.io/tags/Java/"/>
     
   </entry>
   
@@ -36,7 +105,7 @@
     <link href="http://sunjinhang.github.io/2020/02/04/Fibonacci/"/>
     <id>http://sunjinhang.github.io/2020/02/04/Fibonacci/</id>
     <published>2020-02-04T12:39:25.000Z</published>
-    <updated>2020-02-05T02:17:30.495Z</updated>
+    <updated>2020-02-05T02:49:26.312Z</updated>
     
     <content type="html"><![CDATA[<p>斐波那契数列:1、1、2、3、5、8、13……</p><p>使用迭代算法和递归算法都可以实现斐波那契数列，输出数列中的第N项，但是由于递归算法在计算时存在着大量的重复计算，所以在N值很大时，可能会造成内存的溢出，以及计算时间较长的情况出现，在使用迭代算法的情况下同样可以实现计算斐波那契数列第N项的功能，代码示例如下</p><h3 id="迭代算法："><a href="#迭代算法：" class="headerlink" title="迭代算法："></a>迭代算法：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static int FibonacciD(int num) &#123;</span><br><span class="line"><span class="keyword">if</span>(num &lt;= 0) &#123;</span><br><span class="line"><span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(num == 1 || num == 2) &#123;</span><br><span class="line"><span class="built_in">return</span> 1;</span><br><span class="line">&#125;</span><br><span class="line">int first = 1,second =1,third = 0;</span><br><span class="line"><span class="keyword">for</span>(int i = 3; i&lt;= num ;i++) &#123;</span><br><span class="line">third = first + second;</span><br><span class="line">first = second;</span><br><span class="line">second = third;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">return</span> third;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>思路就是当 n &lt;=0 时 return 0，当1 &lt;= n &lt;= 2时 return 1 ，当 n &gt;= 3时，第n项 f(n) = f(n-2) + f(n-1)，所以在计算数列中第n项的时候可用一个for循环，初始化前两项的值，计算完成第N项之后，然后交换（n-2）项 （n-1）项的值，循环完成之后计算出的Third值即为数列中第N项的值</p><h3 id="递归算法："><a href="#递归算法：" class="headerlink" title="递归算法："></a>递归算法：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static int Fibonacci(int i) &#123;</span><br><span class="line"><span class="keyword">if</span>(i &lt;= 0) &#123;</span><br><span class="line"><span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(i == 1 || i == 2) &#123;</span><br><span class="line"><span class="built_in">return</span> 1;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">return</span> Fibonacci(i -2) + Fibonacci(i-1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在N值比较小的时候两种方式计算耗时的差异不大，但是当N值比较大的时候两者之间计算时间的差异就比较大了，</p><p>当N = 10 ，运行时间差异不大，基本上一致<br><img src="/2020/02/04/Fibonacci/20190311161908734.png" alt="20190311161908734"><br>当N = 40 时，此时运行耗时差异已经比较大了<br><img src="/2020/02/04/Fibonacci/20190311162154903.png" alt="20190311162154903"><br> 当N = 45 时,耗时差异进一步加大<br><img src="/2020/02/04/Fibonacci/20190311162551834.png" alt="20190311162551834"><br>​</p><p>所以当N 值趋近于一个较大的值时，再使用递归计算第N项值，耗费的时间将是一个很恐怖的值，因此当N值较大时优先使用迭代算法</p>]]></content>
     
@@ -53,6 +122,8 @@
     
       <category term="数据结构与算法" scheme="http://Sunjinhang.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
+    
+      <category term="Java" scheme="http://Sunjinhang.github.io/tags/Java/"/>
     
       <category term="迭代算法" scheme="http://Sunjinhang.github.io/tags/%E8%BF%AD%E4%BB%A3%E7%AE%97%E6%B3%95/"/>
     
