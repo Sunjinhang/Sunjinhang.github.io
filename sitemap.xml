@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://sunjinhang.github.io/2020/02/06/BuilderPattern/</loc>
+    
+    <lastmod>2020-02-06T03:23:12.737Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjinhang.github.io/2020/02/06/SinglePattern/</loc>
+    
+    <lastmod>2020-02-06T03:12:03.040Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjinhang.github.io/2020/02/06/AbstractFactoryPattern/</loc>
+    
+    <lastmod>2020-02-06T03:02:24.608Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://sunjinhang.github.io/about/index.html</loc>
     
     <lastmod>2020-02-05T03:31:13.952Z</lastmod>
